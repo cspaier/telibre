@@ -1,0 +1,19 @@
+<div class="card w-96 bg-base-100 card-sm shadow-sm m-2">
+  <div class="card-body">
+    <h2 class="card-title">{{address}}</h2>
+    <p>{{address.first_name}} {{address.last_name}} ({{address.phone}})</p>
+    {% if address.infos %}
+    <blockquote>
+        {{address.infos}}
+    </blockquote>
+    {% endif %}
+    <div class="justify-end card-actions">
+      <a href="{{address.get_absolute_url}}"class="btn btn-primary">Modifier</a>
+      <form action="/address/supprimer/{{address.pk}}/" method="POST" onsubmit="return confirm('Supprimer l\'addresse {{address}}?');">
+         {% csrf_token %}
+        <button type="submit" class="btn btn-warning">Supprimer</button>
+      </form>
+
+    </div>
+  </div>
+</div>

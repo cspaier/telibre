@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="flex flex-row m-2">
+    {% for address in object_list %}
+        {% include 'address/includes/address.html' %}
+    {% endfor %}
+</div>
+    <a href="/address/ajouter/" class="btn btn-primary">Nouvelle adresse</a>
+{% endblock %}
