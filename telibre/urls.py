@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
+from allauth.account.decorators import secure_admin_login
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
@@ -8,7 +9,12 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 
+# https://django-allauth.readthedocs.io/en/stable/common/admin.html
+admin.autodiscover()
+admin.site.login = secure_admin_login(admin.site.login)
+
 urlpatterns = [
+    path('accounts/', include('allauth.urls')),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
