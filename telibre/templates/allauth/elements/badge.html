@@ -1,0 +1,18 @@
+{% load allauth %}
+{% setvar type %}
+    {% if "warning" in attrs.tags %}
+        warning
+    {% elif "danger" in attrs.tags %}
+        danger
+    {% elif "secondary" in attrs.tags %}
+        secondary
+    {% elif "success" in attrs.tags %}
+        success
+    {% else %}
+        primary
+    {% endif %}
+{% endsetvar %}
+<c-badge type="{{type}}">
+    {% slot %}
+    {% endslot %}
+</c-badge>

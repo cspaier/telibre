@@ -31,6 +31,7 @@ AUTHENTICATION_BACKENDS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'django_cotton',
     "home",
     "search",
     "wagtail.contrib.forms",

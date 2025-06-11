@@ -1,0 +1,54 @@
+{% extends "allauth/layouts/base.html" %}
+{% load allauth %}
+{% block body %}
+    <div class="flex">
+
+        <aside>
+            <c-menu>
+                {% url 'account_email' as email_url_ %}
+                {% if email_url_ %}
+                    <li>
+                        <a href="{{ email_url_ }}">Gérer vos emails</a>
+                    </li>
+                {% endif %}
+                {% url 'account_change_password' as change_password_url_ %}
+                {% if change_password_url_ %}
+                    <li>
+                        <a href="{{ change_password_url_ }}">Changer votre mot de passe</a>
+                    </li>
+                {% endif %}
+                {% url 'socialaccount_connections' as connections_url_ %}
+                {% if connections_url_ %}
+                    <li>
+                        <a href="{{ connections_url_ }}">Third-Party Accounts</a>
+                    </li>
+                {% endif %}
+                {% url 'usersessions_list' as usersessions_list_url_ %}
+                {% if usersessions_list_url_ %}
+                    <li>
+                        <a href="{{ usersessions_list_url_ }}">Sessions</a>
+                    </li>
+                {% endif %}
+             </c-menu>
+        </aside>
+
+        <main>
+            <div id="content" class="container">
+                {% if messages %}
+                    <div class="pt-4">
+                        {% for message in messages %}
+                            {% element alert level=message.tags %}
+                                {% slot message %}
+                                    {{ message }}
+                                {% endslot %}
+                            {% endelement %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+{% endblock %}
