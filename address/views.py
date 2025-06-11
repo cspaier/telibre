@@ -1,13 +1,15 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
+
 from .models import Address
 from .forms import AddressForm
 
 class AddressCreateView(LoginRequiredMixin, CreateView):
     model = Address
     form_class = AddressForm
-    success_url = "/address/"
+    success_url = reverse_lazy('address:index')
 
     
     def form_valid(self, form):
@@ -29,7 +31,8 @@ class AddressCreateView(LoginRequiredMixin, CreateView):
 class AddressUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Address
     form_class = AddressForm
-    success_url = "/address/"
+    success_url = reverse_lazy('address:index')
+
     
     
     def test_func(self):
@@ -48,7 +51,7 @@ class AddressListView(LoginRequiredMixin, ListView):
 
 class AddressDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Address
-    success_url = "/address/"
+    success_url = reverse_lazy('address:index')
      
     def test_func(self):
         return self.get_object().is_owned_by(self.request.user)    

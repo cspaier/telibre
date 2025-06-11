@@ -9,5 +9,5 @@
         {% include 'address/includes/address.html' %}
     {% endfor %}
 </div>
-    <a href="/address/ajouter/" class="btn btn-primary">Nouvelle adresse</a>
+    <a href="{% url 'address:add' %}" class="btn btn-primary">Nouvelle adresse</a>
 {% endblock %}

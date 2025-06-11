@@ -9,7 +9,7 @@
     {% endif %}
     <div class="justify-end card-actions">
       <a href="{{address.get_absolute_url}}"class="btn btn-primary">Modifier</a>
-      <form action="/address/supprimer/{{address.pk}}/" method="POST" onsubmit="return confirm('Supprimer l\'addresse {{address}}?');">
+      <form action="{% url 'address:remove' address.pk %}" method="POST" onsubmit="return confirm('Supprimer l\'addresse {{address}}?');">
          {% csrf_token %}
         <button type="submit" class="btn btn-warning">Supprimer</button>
       </form>
