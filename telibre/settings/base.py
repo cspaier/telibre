@@ -59,7 +59,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_daisyui',
     "phonenumber_field",
-    'address'
+    'address',
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
@@ -130,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "fr-fr"
 
 TIME_ZONE = "UTC"
 
@@ -202,3 +206,5 @@ WAGTAILDOCS_EXTENSIONS = ['csv', 'docx', 'key', 'odt', 'pdf', 'pptx', 'rtf', 'tx
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'daisyui'
 CRISPY_TEMPLATE_PACK = 'daisyui'
+
+TAILWIND_APP_NAME = 'theme'
