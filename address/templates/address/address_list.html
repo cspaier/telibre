@@ -1,7 +1,9 @@
-{% extends "base.html" %}
+{% extends "allauth/layouts/manage.html" %}
+
 
 
 {% block content %}
+<h1>Vos adresses</h1>
 <div class="flex flex-row m-2">
     {% for address in object_list %}
         {% include 'address/includes/address.html' %}

@@ -46,20 +46,20 @@
                 <a class="btn btn-ghost text-xl" href="/">Telibre</a>
             </div>
             <div class="flex-none">
-             <c-menu>
+             <c-menu class_name="menu-horizontal px-1">
                 {% if request.user.is_authenticated %}
                 <li>
                     <details>
                     <summary>{{request.user.username}}</summary>
                         <ul class="bg-base-100 rounded-t-none p-2">
-                            <li><a>Mon compte</a></li>
-                            <li><a>Se déconnecter</a></li>
+                            <li><a href="{% url 'profile' %}">Mon compte</a></li>
+                            <li><a href="{% url 'account_logout' %}">Se déconnecter</a></li>
                         </ul>
                     </details>
                 </li>
                 {% else %}
-                <li><a href="/accounts/login/">Login</a></li>
-                <li><a href="/accounts/signup/">Signup</a></li>
+                <li><a href="{% url 'account_login' %}">Login</a></li>
+                <li><a href="{% url 'account_signup' %}">Signup</a></li>
                 {% endif %}
              </c-menu>
             </div>

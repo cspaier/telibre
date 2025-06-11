@@ -17,12 +17,12 @@ admin.site.login = secure_admin_login(admin.site.login)
 
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
-    path("accounts/profile/", TemplateView.as_view(template_name="profile.html")),
+    path("accounts/profile/", TemplateView.as_view(template_name="profile.html"), name="profile"),
+    path("accounts/address/", include('address.urls', namespace="address")),    
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path("address/", include('address.urls'))
 ]
 
 

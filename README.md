@@ -1,5 +1,11 @@
 # telibre
 
+Un projet django avec:
+
+- [wagtail](https://wagtail.org/) comme CMS
+- [django allauth](https://docs.allauth.org/en/latest/) comme gestionnaire d'authentification
+- [django cotton](https://django-cotton.com/) pour les composants basés sur [daisy ui](https://daisyui.com/).
+
 ## Déploiement local
 
 - Créer un environnement virtuel python: `python -m venv venv`
