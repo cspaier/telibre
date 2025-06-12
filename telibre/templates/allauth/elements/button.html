@@ -10,7 +10,7 @@ class="mt-2 {% block class %}
     btn 
     {% if "prominent" in attrs.tags %}btn-lg {% elif "minor" in attrs.tags %}btn-sm{% endif %}
     {% if 'outline' in attrs.tags %}btn-outline {% endif %}
-    btn-{% if "danger" in attrs.tags %}danger 
+    btn-{% if "danger" in attrs.tags %}error
         {% elif "secondary" in attrs.tags %}secondary 
         {% elif "warning" in attrs.tags %}warning 
         {% else %}primary
