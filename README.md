@@ -15,7 +15,8 @@ Un projet django avec:
 - Appliquer les migrations `./manage.py migrate`
 - Installer les données initiales `./manage.py loaddata initial.json`
 - Installer les dépendances front `./manage.py tailwind install`
-- Lancer le serveur `./manage.py runserver_watch`
+- Compiler les dépendances front `./manage.py tailwind build`
+- Lancer le serveur `./manage.py runserver`
 
 Vous pouvez vous connecter sur [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) avec les identifiants admin/admin.
 
@@ -26,7 +27,7 @@ La gestion des dépendances et configurations node se trouve dans le dossier `th
 
 Pour installer les dépendances node, `./manage.py tailwind install` à la racine lancera `npm install` dans le dossier `/theme/static_src`.
 
-L'application `theme` fournit également une commande django `runserver_watch` qui lance dans deux processus:
+L'application `theme` fournit également une commande django `runserver_watch` qui lance dans deux processus. Cette commande bug.
 - `./manage.py runserver` : lance le serveur django
 - `./manage.py tailwind watch`: lance `npm start` qui surveille les fichiers statiques afin de recharger le navigateur au changement.
 
