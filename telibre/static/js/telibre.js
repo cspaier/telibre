@@ -5,5 +5,5 @@ themeSwitch.addEventListener('change',()=>{
 });
 
 if(localStorage.getItem('mode')){
-    themeSwitch.checked=(JSON.parse(localStorage.getItem('mode'))=='dark');
+    themeSwitch.checked=(JSON.parse(localStorage.getItem('mode')).includes('dark'));
 }
