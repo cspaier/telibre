@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'crispy_daisyui',
     "phonenumber_field",
     'address',
+    'phone',
     'tailwind',
     'theme',
     'django_browser_reload',
